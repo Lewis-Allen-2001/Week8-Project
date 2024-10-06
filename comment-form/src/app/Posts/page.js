@@ -1,19 +1,23 @@
 import Link from 'next/link';
 import PostForm from '@/app/Components/PostForm';
-import pg from 'pg';
+import {db} from "@/app/utils/db"
+
 
 export default async function PostsFeed() {
-  const db = new pg.Pool({
-    connectionString: process.env.DB_URL,
-  });
 
-  const posts = await db.query('SELECT * FROM posts');
+
+  const posts = await db().query('SELECT * FROM posts');
   const feed = posts.rows;
 
   async function createPost(postData) {
     'use server';
-    await db.query('INSERT INTO posts (username, post) VALUES ($1, $2)', [postData.username, postData.post]);
-    console.log(postData);
+    try {
+      const stuff = await db().query('INSERT INTO posts (username, post) VALUES ($1, $2)', [postData.username, postData.post]);
+    } catch (e) {
+console.error(e);
+    }
+
+    //console.log(postData);
   }
 
   return (
