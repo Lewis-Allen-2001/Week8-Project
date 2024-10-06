@@ -25,24 +25,32 @@ export default function PostForm() {
   }
 
   return (
-    <>
-    <h2>whats on your mind?</h2>
-    <form onSubmit={handleSubmit}>
+    <div className="flex flex-col items-center justify-center p-4 bg-white rounded shadow">
+      <h2 className="text-2xl font-bold mb-4 text-blue-600">What is on your mind?</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input
-        name="username"
-        placeholder="enter username"
-        onChange={handleChange}
-        value={post.username}
+          name="username"
+          placeholder="Enter username"
+          onChange={handleChange}
+          value={post.username}
+          required
+          className="w-full px-3 py-2 border rounded"
         />
-
-<input
-        name="post"
-        placeholder="whats on your mind?"
-        onChange={handleChange}
-        value={post.post}
+        <input
+          name="post"
+          placeholder="What's on your mind?"
+          onChange={handleChange}
+          value={post.post}
+          required
+          className="w-full px-3 py-2 border rounded"
         />
-        <button>Submit</button>
-    </form>
-    </>
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 "
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
