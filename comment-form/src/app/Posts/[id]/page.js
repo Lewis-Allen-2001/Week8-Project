@@ -1,7 +1,5 @@
-
-import CommentForm from "@/app/Components/CommetForm";
-import {db} from "@/app/utils/db"
-
+import CommentForm from "../../Components/CommentForm";
+import { db } from "../../utils/db"
 
 
 export default async function SinglePost({params}) {
@@ -9,7 +7,7 @@ export default async function SinglePost({params}) {
     async function createComment(commentData) {
       'use server';
       try {
-        const stuff = await db().query('INSERT INTO  comments (username, comment) VALUES ($1, $2)', [commentData.username, commentData.comment]);
+        const stuffs = await db().query('INSERT INTO  comments (username, comment) VALUES ($1, $2)', [commentData.username, commentData.comment]);
       } catch (e) {
   console.error(e);
       }
@@ -26,8 +24,8 @@ export default async function SinglePost({params}) {
             <h1 className="text-2xl font-bold mb-4 text-blue-600">{posts.username} said :</h1>
             <p className="text-lg text-blue-600">{posts.post}</p>
             
-            <h1 className="text-2xl font-bold mb-4 text-blue-600">{comments.username} Commented :</h1>
-            <p className="text-lg text-blue-600">{comments.comment}</p>
+            <h1 className="text-2xl font-bold mb-4 text-blue-600">{comments?.username} Commented :</h1>
+            <p className="text-lg text-blue-600">{comments?.comment}</p>
 
             <CommentForm newComment={createComment} />
 

@@ -1,8 +1,4 @@
 "use client";
-import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
-
-
 export default function CommentForm({newComment}) {
 
   
@@ -18,10 +14,9 @@ export default function CommentForm({newComment}) {
     newComment(commentData);
     
     event.target.reset();
-
-    revalidatePath("/Posts");
-    redirect("/Posts");
   }
+
+  
 
   function handleChange(event) {
     
