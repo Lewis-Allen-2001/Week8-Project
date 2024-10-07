@@ -1,6 +1,7 @@
 import CommentForm from "../../Components/CommentForm";
 import { db } from "../../utils/db"
-
+import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
 
 export default async function SinglePost({params}) {
   
@@ -11,6 +12,8 @@ export default async function SinglePost({params}) {
       } catch (e) {
   console.error(e);
       }
+      revalidatePath('/Posts') 
+      redirect(`/Posts`)
     }
 
     const posts = (await db().query(`SELECT * FROM posts WHERE id = $1;`, [params.id])).rows[0];

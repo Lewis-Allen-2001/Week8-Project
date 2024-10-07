@@ -1,5 +1,4 @@
 "use client";
-import { redirect } from "next/navigation";
 
 
 export default function PostForm({newPost}) {
@@ -18,7 +17,6 @@ export default function PostForm({newPost}) {
     event.target.reset();
 
    
-    redirect("/");
     
   }
 

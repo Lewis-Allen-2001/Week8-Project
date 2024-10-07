@@ -2,6 +2,8 @@ import Link from 'next/link';
 import PostForm from '../Components/PostForm';
 import DeleteButton from '../Components/DeleteButton';
 import { db } from '../utils/db'
+import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
 
 export default async function PostsFeed({ searchParams }) {
   let sortQuery = 'ORDER BY id ASC';
@@ -19,6 +21,8 @@ export default async function PostsFeed({ searchParams }) {
     } catch (e) {
       console.error(e);
     }
+    revalidatePath('/Posts') 
+    redirect(`/Posts`)
   }
 
   async function handleDelete(postId) {
@@ -28,6 +32,9 @@ export default async function PostsFeed({ searchParams }) {
     } catch (e) {
       console.error(e);
     }
+    revalidatePath('/Posts'),
+    redirect(`/Posts`),
+    console.log("post removed");
   }
 
   return (
