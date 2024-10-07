@@ -1,36 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+For this project, I developed a comment form that allows users to submit feedback on posts. My main goal was to create a smooth user experience, with comments being stored in the database and retrieved correctly for display. I’m happy to report that I achieved the primary requirements of this feature, including user input validation, form submission, and the storage of comments in the database.
 
-## Getting Started
+However, the project didn’t come without its challenges. One major issue took me an entire weekend to resolve. The problem was with my database queries (db.queries), which were incorrectly structured. This led to data handling issues, where form submissions either failed entirely or produced inaccurate results in the database. It took considerable time and debugging to identify the specific errors and correct the queries so that the data flow between the frontend and backend was functioning properly. Once resolved, the form worked as intended, and I was able to ensure that all user-submitted comments were stored and retrieved efficiently.
 
-First, run the development server:
+🎯 What requirements did you achieve?
+I was able to implement the core functionality of the comment form, including user validation, form submission, and the proper storage of user comments in the database. I also ensured that comments could be retrieved and displayed correctly in the user interface, meeting the project’s basic requirements.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+🎯 What was difficult about these tasks?
+The main difficulty I encountered was the issue with my db.queries. The way I was structuring my database calls caused data handling problems, and it took extensive troubleshooting to find the errors. Additionally, integrating real-time updates into the comment section was more complex than expected, particularly in ensuring smooth and consistent communication between the client and server without overloading resources. Despite these challenges, the project taught me valuable lessons about the importance of well-structured database queries and the intricacies of backend-to-frontend data flow.
